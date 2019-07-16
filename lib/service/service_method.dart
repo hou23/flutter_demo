@@ -11,13 +11,14 @@ Future getHomePageContent() async {
     dio.options.contentType =
         ContentType.parse('application/x-www-form-urlencoded');
     var formData = {'lon': '115.02932', 'lat': '35.76189'};
-    response = await dio.post(servicePath['homePageContext'], data: formData);
+    response = await dio.post(servicePath['homePageContent'], data: formData);
+    print(response);
     if (response.statusCode == 200) {
       return response.data;
     } else {
       throw Exception('后端接口出现异常, 请检测代码和服务器情况........');
     }
   } catch (e) {
-    return print('ERROR:=====>${e}');
+    return print('ERROR:=====>$e');
   }
 }
