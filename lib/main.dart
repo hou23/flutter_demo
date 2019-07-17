@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '百姓生活+',
+      title: 'ChangePro',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.pink
