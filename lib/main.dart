@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/index_page.dart';
+
+import 'tab_navigator.dart';
 
 void main() {
   runApp(new MyApp());
@@ -11,11 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ChangePro',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.pink
-      ),
-      home: IndexPage(),
+      home: TabNavigator(),
     );
   }
-
 }
