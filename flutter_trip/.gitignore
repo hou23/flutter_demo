@@ -10,7 +10,6 @@
 .svn/
 .gradle/
 android/
-.idea/
 
 # IntelliJ related
 *.iml
