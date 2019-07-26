@@ -8,11 +8,11 @@ part of 'common_model.dart';
 
 CommonModel _$CommonModelFromJson(Map<String, dynamic> json) {
   return CommonModel(
-    json['icon'] as String,
-    json['title'] as String,
-    json['url'] as String,
-    json['statusBarColor'] as String,
-    json['hideAppBar'] as bool,
+    icon: json['icon'] as String,
+    title: json['title'] as String,
+    url: json['url'] as String,
+    statusBarColor: json['statusBarColor'] as String,
+    hideAppBar: json['hideAppBar'] as bool,
   );
 }
 

@@ -11,7 +11,7 @@ class CommonModel {
   final bool hideAppBar;
 
   CommonModel(
-      this.icon, this.title, this.url, this.statusBarColor, this.hideAppBar);
+      {this.icon, this.title, this.url, this.statusBarColor, this.hideAppBar});
 
   factory CommonModel.fromJson(Map<String, dynamic> json) =>
       _$CommonModelFromJson(json);

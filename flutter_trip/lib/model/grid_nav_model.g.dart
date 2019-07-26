@@ -29,21 +29,21 @@ Map<String, dynamic> _$GridNavModelToJson(GridNavModel instance) =>
 
 GridNavItem _$GridNavItemFromJson(Map<String, dynamic> json) {
   return GridNavItem(
-    json['startColor'] as String,
-    json['endColor'] as String,
-    json['mainItem'] == null
+    startColor: json['startColor'] as String,
+    endColor: json['endColor'] as String,
+    mainItem: json['mainItem'] == null
         ? null
         : CommonModel.fromJson(json['mainItem'] as Map<String, dynamic>),
-    json['item1'] == null
+    item1: json['item1'] == null
         ? null
         : CommonModel.fromJson(json['item1'] as Map<String, dynamic>),
-    json['item2'] == null
+    item2: json['item2'] == null
         ? null
         : CommonModel.fromJson(json['item2'] as Map<String, dynamic>),
-    json['item3'] == null
+    item3: json['item3'] == null
         ? null
         : CommonModel.fromJson(json['item3'] as Map<String, dynamic>),
-    json['item4'] == null
+    item4: json['item4'] == null
         ? null
         : CommonModel.fromJson(json['item4'] as Map<String, dynamic>),
   );
