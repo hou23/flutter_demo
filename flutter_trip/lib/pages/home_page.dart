@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       appBarAlpha = alpha;
     });
-    print(appBarAlpha);s
+    print(appBarAlpha);
   }
 
   @override
