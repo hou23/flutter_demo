@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> {
   List<CommonModel> bannerList = [];
   List<CommonModel> localNavList = [];
   List<CommonModel> subNavList = [];
-  GridNavModel gridNavModel = null;
-  SalesBoxModel salesBoxModel = null;
+  GridNavModel gridNavModel;
+  SalesBoxModel salesBoxModel;
   bool _loading = true;
 
   _onScroll(offset) {
