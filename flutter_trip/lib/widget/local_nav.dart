@@ -31,6 +31,7 @@ class LocalNav extends StatelessWidget {
       localNavList.forEach((model) {
         items.add(_item(context, model));
       });
+      print(items);
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: items,
