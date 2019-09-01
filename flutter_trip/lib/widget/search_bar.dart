@@ -16,9 +16,9 @@ class SearchBar extends StatefulWidget {
 
   const SearchBar(
       {Key key,
-      this.enabled,
+      this.enabled = true,
       this.hideLeft,
-      this.searchBarType,
+      this.searchBarType = SearchBarType.normal,
       this.hint,
       this.defaultText,
       this.leftButtonClick,
@@ -59,6 +59,7 @@ class _SearchBarState extends State<SearchBar> {
         children: <Widget>[
           _wrapTap(
               Container(
+                padding: EdgeInsets.fromLTRB(6, 5, 10, 5),
                 child: widget?.hideLeft ?? false
                     ? null
                     : Icon(
@@ -90,7 +91,47 @@ class _SearchBarState extends State<SearchBar> {
     );
   }
 
-  _genHomeSearch() {}
+  _genHomeSearch() {
+    return Container(
+      child: Row(
+        children: <Widget>[
+          _wrapTap(
+              Container(
+                padding: EdgeInsets.fromLTRB(6, 5, 5, 5),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '上海',
+                      style: TextStyle(color: _homeFontColor(), fontSize: 14),
+                    ),
+                    Icon(
+                      Icons.expand_more,
+                      size: 22,
+                      color: _homeFontColor(),
+                    ),
+                  ],
+                ),
+              ),
+              widget.leftButtonClick),
+          Expanded(
+            flex: 1,
+            child: _inputBox(),
+          ),
+          _wrapTap(
+            Container(
+              padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+              child: Icon(
+                Icons.comment,
+                size: 26,
+                color: _homeFontColor(),
+              ),
+            ),
+            widget.rightButtonClick,
+          )
+        ],
+      ),
+    );
+  }
 
   _wrapTap(Widget child, void Function() callback) {
     return GestureDetector(
@@ -111,6 +152,13 @@ class _SearchBarState extends State<SearchBar> {
       inputBoxColor = Color(int.parse('0xffEDEDED'));
     }
     return Container(
+      height: 30,
+      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      decoration: BoxDecoration(
+        color: inputBoxColor,
+        borderRadius: BorderRadius.circular(
+            widget.searchBarType == SearchBarType.normal ? 5 : 15),
+      ),
       child: Row(
         children: <Widget>[
           Icon(
@@ -151,6 +199,25 @@ class _SearchBarState extends State<SearchBar> {
                     widget.inputBoxClick,
                   ),
           ),
+          !showClear
+              ? _wrapTap(
+                  Icon(Icons.mic,
+                      size: 22,
+                      color: widget.searchBarType == SearchBarType.normal
+                          ? Colors.blue
+                          : Colors.grey),
+                  widget.speakClick)
+              : _wrapTap(
+                  Icon(
+                    Icons.clear,
+                    size: 22,
+                    color: Colors.grey,
+                  ), () {
+                  setState(() {
+                    _controller.clear();
+                  });
+                  _onChanged('');
+                }),
         ],
       ),
     );
@@ -169,5 +236,11 @@ class _SearchBarState extends State<SearchBar> {
     if (widget.onChanged != null) {
       widget.onChanged(text);
     }
+  }
+
+  _homeFontColor() {
+    return widget.searchBarType == SearchBarType.homeLight
+        ? Colors.black54
+        : Colors.white;
   }
 }
