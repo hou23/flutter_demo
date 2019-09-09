@@ -5,6 +5,7 @@ import 'package:flutter_app/dao/home_dao.dart';
 import 'package:flutter_app/model/grid_nav_model.dart';
 import 'package:flutter_app/model/home_model.dart';
 import 'package:flutter_app/model/sales_box_model.dart';
+import 'package:flutter_app/pages/search_page.dart';
 import 'package:flutter_app/widget/local_nav.dart';
 import 'package:flutter_app/widget/sales_box.dart';
 import 'package:flutter_app/widget/search_bar.dart';
@@ -194,14 +195,19 @@ class _HomePageState extends State<HomePage> {
         Container(
           height: appBarAlpha > 0.2 ? 0.5 : 0,
           decoration: BoxDecoration(
-            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 0.5)]
-          ),
+              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 0.5)]),
         ),
       ],
     );
   }
 
-  _jumpToSearch() {}
+  _jumpToSearch() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return SearchPage(
+        hint: SEARCH_BAR_DEFAULT_TEXT,
+      );
+    }));
+  }
 
   _jumpToSpeak() {}
 }
